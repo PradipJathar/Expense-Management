@@ -1,3 +1,6 @@
+using ExpenseManagement.DataLayer;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddRazorPages()
@@ -5,6 +8,10 @@ builder.Services.AddRazorPages()
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddDbContext<ExpenseManagementDBContext>(options =>
+	options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")
+));
 
 var app = builder.Build();
 
