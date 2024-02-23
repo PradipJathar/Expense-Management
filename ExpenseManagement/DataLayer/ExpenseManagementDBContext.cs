@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using ExpenseManagement.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace ExpenseManagement.DataLayer
 {
@@ -7,5 +8,7 @@ namespace ExpenseManagement.DataLayer
 		public ExpenseManagementDBContext(DbContextOptions options) : base(options)
 		{
 		}
+
+		public DbSet<Expenses> Expenses { get; set; }	
 	}
 }
