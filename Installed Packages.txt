@@ -1,0 +1,5 @@
+microsoft.entityframeworkcore\6.0.4\
+microsoft.entityframeworkcore.sqlserver\6.0.4\
+microsoft.entityframeworkcore.tools\6.0.4\
+system.componentmodel.annotations\5.0.0\
+microsoft.aspnetcore.mvc.razor.runtimecompilation\6.0.4\
