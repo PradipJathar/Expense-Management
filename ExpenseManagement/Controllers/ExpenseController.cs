@@ -31,5 +31,31 @@ namespace ExpenseManagement.Controllers
 
 			return View();
 		}
-	}
+
+		public IActionResult GetExpenseDetailsForUpdate(int? id)
+		{
+			var expense = db.Expenses.Find(id);
+
+			if (expense == null)
+			{
+				return NotFound();
+			}
+
+			return View(expense);
+		}
+
+		[HttpPost]
+        public IActionResult Update(Expenses expenses)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Expenses.Update(expenses);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View();
+        }
+
+    }
 }
