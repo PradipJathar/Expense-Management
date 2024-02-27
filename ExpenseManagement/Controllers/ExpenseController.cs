@@ -19,5 +19,17 @@ namespace ExpenseManagement.Controllers
 
 			return View(expensesList);
 		}
+
+		public IActionResult Create(Expenses expenses)
+		{
+			if (ModelState.IsValid)
+			{
+				db.Expenses.Add(expenses);
+				db.SaveChanges();
+				return RedirectToAction("Index");
+			}
+
+			return View();
+		}
 	}
 }

@@ -1,0 +1,56 @@
+﻿@model Expenses
+
+@{
+    ViewData["Title"] = "Create New Expenses";
+}
+
+<form method="post" asp-action="Create">
+
+    <div class="border p-5">
+
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div class="form-group row">
+            <h2 class="text-black-50 pl-3">Record Your Expense</h2>
+        </div>
+
+        <br />
+
+        <div class="row">
+            <div class="col-4">
+                <label asp-for="ExpenseDate"></label>
+                <input asp-for="ExpenseDate" class="form-control datetimepicker"/>
+                <span asp-validation-for="ExpenseDate" class="text-danger"></span>
+            </div>
+        </div>
+
+        <br />
+
+        <div class="row">
+            <div class="col-4">
+                <label asp-for="ExpenseGivenTo"></label>
+                <input asp-for="ExpenseGivenTo" class="form-control"/>
+                <span asp-validation-for="ExpenseGivenTo" class="text-danger"></span>
+            </div>
+        </div>
+
+        <br />
+
+        <div class="row">
+            <div class="col-4">
+                <label asp-for="ExpenseAmount"></label>
+                <input asp-for="ExpenseAmount" class="form-control"/>
+                <span asp-validation-for="ExpenseAmount" class="text-danger"></span>
+            </div>
+        </div>
+
+        <br />
+
+        <div class="w-12 btn-group" role="group">
+            <input type="submit" class="btn btn-primary mx-1" value="Save" />
+            <a asp-action="Index" class="btn btn-danger mx-1">Back</a>
+        </div>
+
+    </div>
+
+</form>
