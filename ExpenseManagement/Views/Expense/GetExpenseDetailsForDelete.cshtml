@@ -1,0 +1,53 @@
+﻿@model Expenses
+
+@{
+    ViewData["Title"] = "View expsense details for Delete";
+}
+
+<form method="post" asp-action="Delete">
+
+    <input asp-for="ExpenseId" hidden />
+
+    <div class="border p-1">
+
+        <div class="form-group row">
+            <h2 class="text-black-50 pl-3">Detele Your Expense</h2>
+        </div>
+
+        <br />
+
+        <div class="row">
+            <div class="col-4">
+                <label asp-for="ExpenseDate"></label>
+                <input asp-for="ExpenseDate" class="form-control datetimepicker" disabled/>
+            </div>
+        </div>
+
+        <br />
+
+        <div class="row">
+            <div class="col-4">
+                <label asp-for="ExpenseGivenTo"></label>
+                <input asp-for="ExpenseGivenTo" class="form-control" disabled/>
+            </div>
+        </div>
+
+        <br />
+
+        <div class="row">
+            <div class="col-4">
+                <label asp-for="ExpenseAmount"></label>
+                <input asp-for="ExpenseAmount" class="form-control" disabled/>
+            </div>
+        </div>
+
+        <br />
+
+        <div class="w-12 btn-group" role="group">
+            <input type="submit" class="btn btn-primary mx-1" value="Delete" />
+            <a asp-action="Index" class="btn btn-danger mx-1">Back</a>
+        </div>
+
+    </div>
+
+</form>

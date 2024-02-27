@@ -57,5 +57,33 @@ namespace ExpenseManagement.Controllers
             return View();
         }
 
+		public IActionResult GetExpenseDetailsForDelete(int? id)
+		{
+			var expense = db.Expenses.Find(id);
+
+			if (expense == null)
+			{
+				return NotFound();
+			}
+
+			return View(expense);
+		}
+
+		[HttpPost]
+        public IActionResult Delete(int? ExpenseId)
+        {
+            var expense = db.Expenses.Find(ExpenseId);
+
+            if (expense == null)
+            {
+                return NotFound();
+            }
+
+			db.Expenses.Remove(expense);
+			db.SaveChanges();
+
+			return RedirectToAction("Index");            
+        }
+
     }
 }
