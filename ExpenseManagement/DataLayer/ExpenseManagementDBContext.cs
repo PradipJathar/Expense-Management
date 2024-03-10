@@ -9,6 +9,8 @@ namespace ExpenseManagement.DataLayer
 		{
 		}
 
-		public DbSet<Expenses> Expenses { get; set; }	
+		public DbSet<Expenses> Expenses { get; set; }
+
+		public DbSet<ExpenseCategory> ExpenseCategory { get; set; }
 	}
 }
