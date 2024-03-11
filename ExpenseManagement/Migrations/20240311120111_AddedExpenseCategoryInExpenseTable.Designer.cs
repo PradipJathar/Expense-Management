@@ -4,6 +4,7 @@ using ExpenseManagement.DataLayer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ExpenseManagement.Migrations
 {
     [DbContext(typeof(ExpenseManagementDBContext))]
-    partial class ExpenseManagementDBContextModelSnapshot : ModelSnapshot
+    [Migration("20240311120111_AddedExpenseCategoryInExpenseTable")]
+    partial class AddedExpenseCategoryInExpenseTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

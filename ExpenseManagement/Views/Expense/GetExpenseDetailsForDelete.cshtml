@@ -27,6 +27,18 @@
 
         <div class="row">
             <div class="col-4">
+                <label asp-for="ExpenseCategoryId"></label>
+                <select asp-for="ExpenseCategoryId" asp-items="@ViewBag.PopulateExpenseCategory" class="form-control" disabled>
+                    <option selected>Select</option>
+                </select>
+                <span asp-validation-for="ExpenseCategoryId" class="text-danger"></span>
+            </div>
+        </div>
+
+        <br />
+
+        <div class="row">
+            <div class="col-4">
                 <label asp-for="ExpenseGivenTo"></label>
                 <input asp-for="ExpenseGivenTo" class="form-control" disabled/>
             </div>

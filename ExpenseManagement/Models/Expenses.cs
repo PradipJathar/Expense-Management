@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ExpenseManagement.Models
 {
@@ -20,9 +21,18 @@ namespace ExpenseManagement.Models
         [Display(Name = "Paid To")]
         public string ExpenseGivenTo { get; set; }
 
+
         [Required(ErrorMessage = "Please enter expense amount.")]
         [Range(0, double.MaxValue, ErrorMessage = "Please enter valid expense amount." )]
         [Display(Name = "Expense Amount")]
-        public double ExpenseAmount { get; set; }         
+        public double ExpenseAmount { get; set; }
+
+
+        [Display(Name = "Expense Category")]
+        public int ExpenseCategoryId { get; set; }
+
+
+        [ForeignKey("ExpenseCategoryId")]
+        public virtual ExpenseCategory? ExpenseCategory { get; set; }
     }
 }

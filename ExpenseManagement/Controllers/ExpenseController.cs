@@ -1,6 +1,8 @@
 ﻿using ExpenseManagement.DataLayer;
 using ExpenseManagement.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 
 namespace ExpenseManagement.Controllers
 {
@@ -15,13 +17,21 @@ namespace ExpenseManagement.Controllers
 
         public IActionResult Index()
 		{
-			IEnumerable<Expenses> expensesList = db.Expenses.ToList();
+			IEnumerable<Expenses> expensesList = db.Expenses.Include(e => e.ExpenseCategory).ToList();
 
 			return View(expensesList);
 		}
 
 		public IActionResult Create(Expenses expenses)
 		{
+			IEnumerable<SelectListItem> getExpenseCategoryList = db.ExpenseCategory.Select(ec => new SelectListItem
+			{
+				Text = ec.ExpenseCategoryName,
+				Value = ec.ExpenseCategoryId.ToString()
+			});
+
+			ViewBag.PopulateExpenseCategory = getExpenseCategoryList;
+
 			if (ModelState.IsValid)
 			{
 				db.Expenses.Add(expenses);
@@ -34,7 +44,15 @@ namespace ExpenseManagement.Controllers
 
 		public IActionResult GetExpenseDetailsForUpdate(int? id)
 		{
-			var expense = db.Expenses.Find(id);
+            IEnumerable<SelectListItem> getExpenseCategoryList = db.ExpenseCategory.Select(ec => new SelectListItem
+            {
+                Text = ec.ExpenseCategoryName,
+                Value = ec.ExpenseCategoryId.ToString()
+            });
+
+            ViewBag.PopulateExpenseCategory = getExpenseCategoryList;
+
+            var expense = db.Expenses.Find(id);
 
 			if (expense == null)
 			{
@@ -59,7 +77,15 @@ namespace ExpenseManagement.Controllers
 
 		public IActionResult GetExpenseDetailsForDelete(int? id)
 		{
-			var expense = db.Expenses.Find(id);
+            IEnumerable<SelectListItem> getExpenseCategoryList = db.ExpenseCategory.Select(ec => new SelectListItem
+            {
+                Text = ec.ExpenseCategoryName,
+                Value = ec.ExpenseCategoryId.ToString()
+            });
+
+            ViewBag.PopulateExpenseCategory = getExpenseCategoryList;
+
+            var expense = db.Expenses.Find(id);
 
 			if (expense == null)
 			{
