@@ -7,6 +7,8 @@ namespace ExpenseManagement.Models
 		[Key]
         public int ExpenseCategoryId { get; set; }
 
+
+        [Display(Name = "Expense Category Name")]
         public string ExpenseCategoryName { get; set; }		
     }
 }
