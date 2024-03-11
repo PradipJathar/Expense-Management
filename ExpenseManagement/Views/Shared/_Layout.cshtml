@@ -7,26 +7,24 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/ExpenseManagement.styles.css" asp-append-version="true" />
+
 </head>
-<body>
+<body style="background-color:ivory">
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav style="background: linear-gradient(34deg, #ff7f00, #ffcc80);" class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-warning border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">ExpenseManagement</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><h3 class="text-white">Expense Management</h3></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
+                    <ul class="navbar-nav flex-grow-1">                       
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Expense" asp-action="Index"><b>My Expenses</b></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Expense" asp-action="Index">My Expenses</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="ExpenseCategory" asp-action="Index">Expenses Category</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="ExpenseCategory" asp-action="Index"><b>Expenses Category</b></a>
                         </li>
                     </ul>
                 </div>
@@ -39,9 +37,9 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+    <footer style="bottom: 0; position: fixed; width: 100%; background: linear-gradient(34deg, #ffcc80, #ff7f00); text-align: center;">
         <div class="container">
-            &copy; 2024 - ExpenseManagement - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2024 - Expense Management
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
