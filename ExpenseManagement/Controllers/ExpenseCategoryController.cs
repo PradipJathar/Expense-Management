@@ -1,5 +1,7 @@
 ﻿using ExpenseManagement.DataLayer;
+using ExpenseManagement.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 
 namespace ExpenseManagement.Controllers
 {
@@ -14,7 +16,9 @@ namespace ExpenseManagement.Controllers
 
 		public IActionResult Index()
 		{
-			return View();
+			IEnumerable<ExpenseCategory> expenseCategories = db.ExpenseCategory.ToList();
+
+			return View(expenseCategories);
 		}
 	}
 }
